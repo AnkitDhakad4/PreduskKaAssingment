@@ -4,7 +4,7 @@ import axios from "axios"
 export const fetchProjectsBySkill = async (skill) => {
   try {
     const res = await axios.get(
-      `http://localhost:3000/api/v1/projects?skill=${skill}`
+      `https://predusk-ka-assingment-dywx.vercel.app/api/v1/projects?skill=${skill}`
     );
   
     // console.log("Response from the api is",res.data.data)
