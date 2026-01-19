@@ -144,12 +144,10 @@ const getProfile=async function(req,res){
 //     }
 // }
 
-const getProjects = async (req, res) => {
+const getProjects = async function (req, res) {
   try {
-    // 🔥 ENSURE DB CONNECTION
-    await connection();
-
     const { skill } = req.query;
+    console.log("skill in getProjects:", skill);
 
     if (!skill) {
       return res.status(400).json({
@@ -162,6 +160,8 @@ const getProjects = async (req, res) => {
       { projects: 1, _id: 0 }
     );
 
+    // console.log("below the findOne:", result);
+
     if (!result || result.projects.length === 0) {
       return res.status(404).json({
         message: "No projects found for this skill"
@@ -172,12 +172,13 @@ const getProjects = async (req, res) => {
       project.skills.includes(skill)
     );
 
-    return res.status(200).json({
-      message: "These are the projects",
-      data: filteredProjects
-    });
+    console.log("filteredProjects:", filteredProjects);
+
+    return res.status(200).json(
+      new apiResponse("These are the projects", filteredProjects, 200));
 
   } catch (error) {
+    console.error(error);
     return res.status(500).json({
       message: "Error while getting the projects by skill",
       error: error.message
