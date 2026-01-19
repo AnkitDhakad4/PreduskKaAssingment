@@ -9,13 +9,12 @@ const Intro = () => {
     "Express.js",
     "MongoDB",
     "TailwindCSS",
-    "Machine Learning"
   ];
 
   const infoCards = [
     { label: "Role", value: "Full Stack Developer" },
     { label: "College", value: "NIT Delhi" },
-    { label: "Degree", value: "B.Tech (3rd Year)" },
+    { label: "Degree", value: "B.Tech (3rd Year) with 8.02 CGPA" },
     { label: "Interest", value: "Machine Learning" }
   ];
 
@@ -45,11 +44,15 @@ const Intro = () => {
 
           {/* Short Intro */}
           <p className="text-gray-300 text-center max-w-3xl mx-auto leading-relaxed">
-            Third-year B.Tech student at{" "}
-            <span className="text-white font-semibold">NIT Delhi</span>, focused on
-            building scalable web applications and exploring{" "}
-            <span className="text-white">Machine Learning</span>.
-          </p>
+  Third-year B.Tech student at{" "}
+  <span className="text-white font-semibold">NIT Delhi</span> with hands-on
+  experience in full-stack development. Interested in building
+  production-ready web applications and expanding knowledge in{" "}
+  <span className="text-white font-semibold">
+    Machine Learning and modern software systems
+  </span>.
+</p>
+
 
           {/* Info Cards */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
