@@ -1,6 +1,8 @@
 import mongoose from "mongoose"
 import {profile} from "../models/profile.model.js"
 import apiResponse from "../utils/apiResponse.js"
+import connection from "../DataBase/connection.js";
+import profile from "../Models/profile.model.js";
 
 const createProfile=async function(req,res){
     try {
@@ -142,10 +144,12 @@ const getProfile=async function(req,res){
 //     }
 // }
 
-const getProjects = async function (req, res) {
+const getProjects = async (req, res) => {
   try {
+    // 🔥 ENSURE DB CONNECTION
+    await connection();
+
     const { skill } = req.query;
-    console.log("skill in getProjects:", skill);
 
     if (!skill) {
       return res.status(400).json({
@@ -158,8 +162,6 @@ const getProjects = async function (req, res) {
       { projects: 1, _id: 0 }
     );
 
-    // console.log("below the findOne:", result);
-
     if (!result || result.projects.length === 0) {
       return res.status(404).json({
         message: "No projects found for this skill"
@@ -170,13 +172,12 @@ const getProjects = async function (req, res) {
       project.skills.includes(skill)
     );
 
-    console.log("filteredProjects:", filteredProjects);
-
-    return res.status(200).json(
-      new apiResponse("These are the projects", filteredProjects, 200));
+    return res.status(200).json({
+      message: "These are the projects",
+      data: filteredProjects
+    });
 
   } catch (error) {
-    console.error(error);
     return res.status(500).json({
       message: "Error while getting the projects by skill",
       error: error.message
