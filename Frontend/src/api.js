@@ -1,10 +1,11 @@
 import axios from "axios"
 
+const link=import.meta.env.VITE_WEB_LINK
 
 export const fetchProjectsBySkill = async (skill) => {
   try {
     const res = await axios.get(
-      `https://ak-456.vercel.app/api/v1/projects?skill=${skill}`
+      `${link}/api/v1/projects?skill=${skill}`
     );
   
     // console.log("Response from the api is",res.data.data)
