@@ -1,0 +1,88 @@
+# ===============================
+# Dependencies
+# ===============================
+node_modules/
+
+# ===============================
+# Environment Variables
+# ===============================
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+
+# ===============================
+# Build Outputs
+# ===============================
+dist/
+build/
+out/
+
+# ===============================
+# Logs
+# ===============================
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+logs/
+*.log
+
+# ===============================
+# Runtime Data
+# ===============================
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# ===============================
+# OS & Editor Files
+# ===============================
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# ===============================
+# Vite / React / Tailwind
+# ===============================
+.vite/
+.cache/
+.eslintcache
+
+# ===============================
+# Coverage & Testing
+# ===============================
+coverage/
+.nyc_output/
+
+# ===============================
+# Temporary Files
+# ===============================
+tmp/
+temp/
+
+# ===============================
+# Optional: Database Dumps
+# ===============================
+*.sql
+*.dump
+*.mongodb
+
+# ===============================
+# Optional: Firebase / Cloud
+# ===============================
+.firebase/
+.vercel/
+.netlify/
+
+# ===============================
+# Package Manager Lockfiles (Optional)
+# Uncomment if you DON'T want to commit lock files
+# ===============================
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
